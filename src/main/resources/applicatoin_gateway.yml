@@ -1,0 +1,75 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+
+      discovery:
+        locator:
+          lower-case-service-id: true
+
+      # Http Client Timeout + WebSocket support
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 10s
+        websocket:
+          max-frame-payload-length: 65536
+
+# Eureka config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+
+# Internal security property
+internal:
+  security:
+    key: Lalit-Super-Secret-Key-2026
+
+# Resilience4j circuit breaker
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+    instances:
+      authServiceCircuitBreaker:
+        baseConfig: default
+      userServiceCircuitBreaker:
+        baseConfig: default
+      jobServiceCircuitBreaker:
+        baseConfig: default
+      communityServiceCircuitBreaker:
+        baseConfig: default
+      relocationServiceCircuitBreaker:
+        baseConfig: default
+
+# Actuator / monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,gateway,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+# Logging config
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: DEBUG
+    com.lalit.apigateway: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss} %-5level %logger{36} - %msg%n"
