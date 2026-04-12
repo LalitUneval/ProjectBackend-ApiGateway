@@ -16,17 +16,10 @@ spring:
       httpclient:
         connect-timeout: 5000
         response-timeout: 10s
+        ssl:
+          use-insecure-trust-manager: true
         websocket:
           max-frame-payload-length: 65536
-
-# Eureka config - FIXED: pointing to same Eureka as auth-service
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: https://projectbackend-serviceregistery-1.onrender.com/eureka/
-#  instance:
-#    prefer-ip-address: false
-#    hostname: https://projectbackend-apigateway.onrender.com # e.g. projectbackend-apigateway.onrender.com
 
 # Internal security property
 internal:

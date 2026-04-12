@@ -18,7 +18,7 @@ public class CorsConfig {
         // Allow frontend origins
         corsConfig.setAllowedOrigins(Arrays.asList(
 
-                "https://internship-project-frontend-sxg9.vercel.app/"
+                "https://internship-project-frontend-sxg9.vercel.app"
 
         ));
 
