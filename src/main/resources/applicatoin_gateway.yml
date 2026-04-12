@@ -23,10 +23,10 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: https://projectbackend-serviceregistery-1.onrender.com/eureka/
+      defaultZone: https://projectbackend-serviceregistery-1.onrender.com
   instance:
     prefer-ip-address: false
-    hostname: https://projectbackend-apigateway.onrender.com  # e.g. projectbackend-apigateway.onrender.com
+    hostname: https://projectbackend-apigateway.onrender.com # e.g. projectbackend-apigateway.onrender.com
 
 # Internal security property
 internal:
