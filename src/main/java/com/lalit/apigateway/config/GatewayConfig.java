@@ -308,7 +308,7 @@ public class GatewayConfig {
                 // Auth Service
                 .route("auth-service-public", r -> r
                         .path("/api/auth/**")
-                        .uri("lb://auth-service"))
+                        .uri("lb+https://auth-service"))
 
                 // User Service
                 .route("user-service-create-profile", r -> r
