@@ -26,7 +26,7 @@ eureka:
       defaultZone: https://projectbackend-serviceregistery-1.onrender.com/eureka/
   instance:
     prefer-ip-address: false
-    hostname: <your-api-gateway-public-hostname-on-render.com>  # e.g. projectbackend-apigateway.onrender.com
+    hostname: https://projectbackend-apigateway.onrender.com  # e.g. projectbackend-apigateway.onrender.com
 
 # Internal security property
 internal:
