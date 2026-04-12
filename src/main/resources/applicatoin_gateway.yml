@@ -19,14 +19,14 @@ spring:
         websocket:
           max-frame-payload-length: 65536
 
-# Eureka config
+# Eureka config - FIXED: pointing to same Eureka as auth-service
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: https://projectbackend-serviceregistery-1.onrender.com/eureka/
   instance:
-    prefer-ip-address: true
-    hostname: localhost
+    prefer-ip-address: false
+    hostname: <your-api-gateway-public-hostname-on-render.com>  # e.g. projectbackend-apigateway.onrender.com
 
 # Internal security property
 internal:
